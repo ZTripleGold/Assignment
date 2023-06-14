@@ -1,0 +1,262 @@
+.common-layout {
+    background: #f7f7fc;
+}
+
+#main {
+    padding: 0;
+    margin: 0;
+}
+
+#p1, #p2 {
+    padding: 10px;
+    margin: 0;
+}
+#p4 {
+    margin: 8px 0;
+    font-size: 16px;
+    color: black;
+    text-align: left;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 610px;
+    max-width: 1400px !important;   /* 设置最大宽度 */
+    padding: 0 10px !important;
+    margin: 0 0 0 100px !important;
+    overflow: hidden; /* 隐藏超出边界的内容 */
+}
+
+.container > div, .container > a {
+    gap: 20px;
+}
+
+/* 鼠标移入，作出响应 */
+.item-calendar,
+.item-stats,
+.item-visits,
+.box,
+.item-records {
+    transition: all 0.3s ease-in-out;
+    clip-path: inset(0);
+}
+.item-calendar:hover,
+.item-stats:hover,
+.item-visits:hover,
+.box:hover,
+.item-records:hover {
+    transform: scale3d(1.03, 1.03, 1); /* 在 Z 轴上使用 1 的缩放比例 */
+    outline: 2px solid dodgerblue;
+    clip-path: inset(-2%);
+}
+.item-stats:hover div, .item-visits:hover div, .item-records div {
+    /*pointer-events: none;   !* 让内部元素不作响应 *!*/
+    outline: none !important; /* 禁用内部元素的 outline 属性 */
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 275px;
+    margin: 10px 0;
+    /*overflow: hidden; !* 隐藏超出边界的内容 *!*/
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(100% - 275px);
+    margin: 10px 0;
+    /*overflow: hidden; !* 隐藏超出边界的内容 *!*/
+}
+
+.item {
+    flex: 1;
+    text-align: center;
+}
+
+.item-calendar {
+    height: 100%;
+    width: 33%;
+    font-size: 1.2em;
+    background-color: white;
+}
+
+.item-stats {
+    height: 100%;
+    width: 33%;
+    font-size: 1.2em;
+    position: relative;
+    /*overflow: hidden;*/
+    background-color: white;
+}
+/* 放一个伪类元素，处理超出部分的背景颜色不一致问题 */
+.item-stats::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -10px;
+    width: 10px;
+    background-color: #f7f7fc;
+}
+
+.item-visits {
+    height: 100%;
+    width: 34%;
+    font-size: 1.5em;
+    position: relative;
+    background-color: white;
+}
+/* 不知道为啥，前面加的伪类元素出现了两个，这里再加一个覆盖 */
+.item-visits::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -10px;
+    width: 10px;
+    background-color: #f7f7fc;
+}
+
+.content {
+    flex: 1;
+    background-color: #eee;
+    margin: 10px 0;
+    height: 100%;
+}
+
+/* 点击量和操作记录通过flex-grow划分 */
+.item-clicks {
+    flex-grow: 0.9;
+    height: 100%;
+    font-size: 1.2em;
+    background-color: #f7f7fc;
+}
+
+.item-records {
+    flex-grow: 2;
+    height: 100%;
+    font-size: 1.2em;
+    background-color: white;
+    padding-left: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.router-link {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.my-table th, .my-table td {
+    padding-top: 8px; /* 调整表头和内容之间的上边距 */
+    padding-bottom: 8px; /* 调整表头和内容之间的下边距 */
+}
+
+/* 日历样式 */
+.el-calendar {
+     width: 100%;
+     height: 100%;
+     margin: 0 !important;
+ }
+.home_head {
+    margin: 0 !important;
+}
+.el-col-24 {
+    padding: 0 !important;
+}
+.el-calendar__header {
+    top: 5px;
+    height: 35px;
+    line-height: 35px;
+}
+.el-calendar__body {
+    height: 190px;
+}
+.el-calendar__title {
+    margin-top: 30px !important;
+}
+.el-calendar-table {
+    width: 100%;
+}
+.el-calendar-table th,
+.el-calendar-table td {
+    width: calc(100% / 7);
+    height: 25px;
+    font-size: 14px;
+    text-align: center;
+}
+.el-calendar-table .el-calendar-day {
+    width: 15px;
+    height: 15px;
+}
+.el-calendar-day {
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+}
+.el-calendar-day span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+/* 点击量样式 */
+#clicks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 0;
+}
+.box {
+    margin: 0 !important;
+    height: calc(50% - 5px);
+    width: calc(50% - 5px);
+    background-color: white;
+}
+.box:nth-child(1),
+.box:nth-child(2) {
+    width: calc(50% - 10px);
+}
+.box:nth-child(3),
+.box:nth-child(4) {
+    width: calc(50% - 10px);
+}
+/* 点击量字体样式 */
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    position: relative;
+}
+.p1 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #9fa19f;
+    font-size: 20px;
+}
+.p2 {
+    font-size: 33px;
+    font-weight: 500;
+}
+.p3 {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 20px;
+}
+
+/* 操作记录样式 */
+.el-table,
+.el-table th,
+.el-table td,
+.el-table .cell {
+    font-size: 9px;
+}

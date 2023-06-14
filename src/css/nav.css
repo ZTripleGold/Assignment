@@ -1,0 +1,26 @@
+/* ul的padding为0 */
+#nav-div-ul, #nav-ul, #nav-ul li {
+    padding: 0;
+}
+#nav-ul li a {
+    padding: 15px 35px;
+}
+#nav-ul, #nav-ul ul {
+    /* 表示优先级最高 */
+    padding: 0 !important;
+}
+
+/* ul下的所有a，当鼠标移入时，背景颜色变成绿色 */
+#nav-ul a:hover {
+    background-color: #51e0b4;
+}
+
+/* 黑白颜色转换 */
+.navbar-toggler {
+    filter: invert(1);
+}
+
+#nav-form {
+    margin: 0 !important;
+    right: 300px;
+}
